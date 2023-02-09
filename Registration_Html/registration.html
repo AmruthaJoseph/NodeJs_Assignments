@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="./registration.css" />
+  </head>
+  <body>
+    <form>
+      <div class="main-div">
+        <center>
+          <img src="/Images/header.jpg" alt="Image" width="800" height="80" />
+        </center>
+        <br />
+        <label> First Name </label>
+        <input type="text" id="firstName" />
+        <br />
+        <label> Last Name </label>
+        <input type="text" id="lastName" />
+        <br />
+        <label> Address </label>
+        <textarea cols="40" rows="5" id="address"></textarea>
+        <br /><br />
+        <label> Gender </label>
+        <input
+          type="radio"
+          name="gender"
+          value="male"
+          style="margin-left: 20px"
+        /><span id="male">Male</span>
+        <input
+          type="radio"
+          name="gender"
+          value="female"
+          style="margin-left: 20px"
+        /><span id="female">Female</span> <br /><br />
+        <label> State </label>
+        <select>
+          <option>Select</option>
+          <option>Kerala</option>
+          <option>Punjab</option>
+          <option>Tamil Nadu</option>
+          <option>Karnataka</option>
+        </select>
+        <br /><br />
+        <label> Citizenship </label>
+        <input type="checkbox" name="check1" style="margin-left: 20px" />
+        <span id="indian"> Indian </span>
+        <input type="checkbox" name="check2" style="margin-left: 20px" />
+        <span id="non-indian" style="width: 40px"> Non-Indian </span>
+        <br />
+        <br />
+        <center>
+          <input
+            type="submit"
+            id="btn-submit"
+            value="Submit"
+            class="buttons"
+            formaction="./submitpage.html"
+          />
+          <input type="submit" id="btn-cancel" value="Cancel" class="buttons" />
+        </center>
+      </div>
+      <div class="video-div">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/JHq3pL4cdy4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+
+        <!-- <video width="500px" height="500px" controls autoplay loop>
+          <source
+            src="https://www.youtube.com/embed/t4vKPhjcMZg"
+            type="video/mp4"/>
+        </video> -->
+      </div>
+    </form>
+  </body>
+</html>
