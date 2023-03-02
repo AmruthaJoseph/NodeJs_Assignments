@@ -2,25 +2,40 @@ import React, { Component } from "react";
 import "./Login.css";
 
 export class Login extends Component {
-    constructor(props) {
-    console.log("Constructor calling...");
+  constructor(props) {
     super(props);
-    this.state = { userName: "" };
-    this.onChange = this.onChange.bind(this);
+    this.state = { userName: "", passWord: "" };
+    this.userNameChange = this.userNameChange.bind(this);
+    this.passwordChange = this.passwordChange.bind(this);
     this.onClick = this.onClick.bind(this);
+    console.log("Constructor calling...");
   }
 
-  onChange(e) {
+  userNameChange(e) {
     this.setState({ userName: e.target.value });
     console.log("onChange calling...", this.state.userName);
+  }
+  passwordChange(e) {
+    this.setState({ passWord: e.target.value });
+    console.log("onChange calling...", this.state.passWord);
   }
 
   onClick() {
     console.log("onClick calling...");
-    var user = document.getElementById("userName");
-    var pass = document.getElementById("passWord");
-    if (user.value === "" || pass.value === "") {
-      alert("Please enter User name or Password");
+
+    if (this.state.userName === "") {
+      alert("Please enter User name");
+    } else if (this.state.passWord === "") {
+      alert("Please enter Password");
+    } else if (this.state.passWord.length < 5) {
+      alert("Password should be minimum 5 character");
+    } else if (
+      this.state.userName.trim() === "amrutha" &&
+      this.state.passWord.trim() === "12345"
+    ) {
+      alert("Login Successfull");
+    } else {
+      alert("Invalid User name or Password");
     }
   }
 
@@ -34,12 +49,18 @@ export class Login extends Component {
             type="text"
             id="userName"
             value={this.state.userName}
-            onChange={this.onChange}
-            placeholder="User Name">
-          </input>
+            onChange={this.userNameChange}
+            placeholder="User Name"
+          ></input>
           <br />
           <label>password</label>
-          <input type="password" id="passWord" placeholder="Password"></input>
+          <input
+            type="password"
+            id="passWord"
+            value={this.state.passWord}
+            onChange={this.passwordChange}
+            placeholder="Password"
+          ></input>
           <br />
           <button onClick={this.onClick}>Login</button>
         </div>
