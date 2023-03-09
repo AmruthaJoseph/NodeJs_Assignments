@@ -1,12 +1,11 @@
-import {React,useEffect,useState} from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
-import InfoIcon from '@mui/icons-material/Info';
+import { React, useEffect, useState } from "react";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import IconButton from "@mui/material/IconButton";
+import InfoIcon from "@mui/icons-material/Info";
 
 function ProductList() {
-
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -14,11 +13,16 @@ function ProductList() {
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
-      })
+      });
   }, []);
 
   return (
-    <ImageList sx={{ width: 1200, height: 800 }} cols={3} rowHeight={164} component="main">
+    <ImageList
+      sx={{ width: 1200, height: 800 }}
+      cols={3}
+      rowHeight={164}
+      component="main"
+    >
       {product.map((item) => (
         <ImageListItem key={item.thumbnailUrl}>
           <img
@@ -31,7 +35,7 @@ function ProductList() {
             title={item.title}
             actionIcon={
               <IconButton
-                sx={{ color: 'white' }}
+                sx={{ color: "white" }}
                 aria-label={`info about ${item.title}`}
               >
                 <InfoIcon />
@@ -40,9 +44,8 @@ function ProductList() {
           />
         </ImageListItem>
       ))}
-    </ImageList>   
+    </ImageList>
   );
+}
 
- }
-
-export default ProductList
+export default ProductList;
